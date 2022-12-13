@@ -44,12 +44,12 @@ const makeDeleteOperation = (position: number, length: number): [] | [DeleteText
   length === 0
     ? []
     : [
-        {
-          type: BasicTextOperationType.Delete,
-          position,
-          length,
-        },
-      ];
+      {
+        type: BasicTextOperationType.Delete,
+        position,
+        length,
+      },
+    ];
 
 function textOperationToAggregatedBasicTextOperation(
   textOperation: TextOperation,
@@ -118,13 +118,13 @@ const CodeMirrorComponent = makeCodeMirrorComponent<AggregatedBasicTextOperation
 const renderBasicOperation = (basicTextOperation: BasicTextOperation): string => {
   switch (basicTextOperation.type) {
     case BasicTextOperationType.Insert:
-      return `Insert(pos=${basicTextOperation.position}, content="${replaceInvisibleCharacters(
+      return `插入(位置=${basicTextOperation.position}, 内容="${replaceInvisibleCharacters(
         basicTextOperation.content,
       )
         .replace(/\\/g, "\\\\")
         .replace(/"/g, '\\"')}")`;
     case BasicTextOperationType.Delete:
-      return `Delete(pos=${basicTextOperation.position}, length=${basicTextOperation.length})`;
+      return `删除(位置=${basicTextOperation.position}, 内容=${basicTextOperation.length})`;
   }
 };
 

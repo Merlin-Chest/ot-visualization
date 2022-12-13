@@ -45,18 +45,18 @@ export const makeServerVisualization = <SnapshotT extends unknown, OpT extends u
       <div className={clsx(sharedClasses.site, classes.server)}>
         <h2>
           <StorageIcon />
-          Central Server
+          服务器
         </h2>
         <table className={classes.stateTable}>
           <tbody>
             <tr>
-              <th>Document:</th>
+              <th>内容:</th>
               <td>{applicationSpecificComponents.renderSnapshot(state.snapshot)}</td>
             </tr>
             <tr>
-              <th>Operations:</th>
+              <th>变更:</th>
               <td>
-                {state.operations.length === 0 ? <>none yet</> : <></>}
+                {state.operations.length === 0 ? <>无</> : <></>}
                 {state.operations.map((operation) => (
                   <OperationVisualization
                     key={operation.meta.id}

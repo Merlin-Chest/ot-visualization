@@ -42,7 +42,7 @@ function App() {
     <OperationHoverProvider>
       <div className={classes.wrapper}>
         <h1 className={classes.header}>
-          Visualization of <abbr title="Operational Transformation">OT</abbr> with a central server
+          可视化 <abbr title="Operational Transformation">OT</abbr> 算法协同模型
         </h1>
         <Visualization initialSnapshot={initialText} />
       </div>

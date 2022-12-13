@@ -58,12 +58,12 @@ const makeClientLogItemVisualization = <OpT extends unknown>(
 
     return (
       <p>
-        User edit{" "}
+        操作{" "}
         <OperationVisualization
           className={classes.inlineOperation}
           operation={logEntry.operation}
         />{" "}
-        was sent to the server.
+        被发送到服务器。
       </p>
     );
   };
@@ -75,12 +75,12 @@ const makeClientLogItemVisualization = <OpT extends unknown>(
 
     return (
       <p>
-        User edit{" "}
+        操作{" "}
         <OperationVisualization
           className={classes.inlineOperation}
           operation={logEntry.operation}
         />{" "}
-        was stored in buffer.
+        被存储在缓冲区。
       </p>
     );
   };
@@ -89,7 +89,7 @@ const makeClientLogItemVisualization = <OpT extends unknown>(
     logEntry,
   ) => {
     // TODO: render user edit
-    return <p>Added user edit to buffer.</p>;
+    return <p>新增用户操作到缓冲区</p>;
   };
 
   const ReceivedOwnOperationVisualization: FunctionComponent<ReceivedOwnOperation<OpT>> = (
@@ -99,7 +99,7 @@ const makeClientLogItemVisualization = <OpT extends unknown>(
 
     return (
       <p>
-        Received acknowledgment of own operation{" "}
+        收到自己的操作{" "}
         <OperationVisualization
           className={classes.inlineOperation}
           operation={logEntry.acknowledgedOperation}
@@ -116,17 +116,17 @@ const makeClientLogItemVisualization = <OpT extends unknown>(
 
     return (
       <p>
-        Received acknowledgment of own operation{" "}
+        接收到自己的操作{" "}
         <OperationVisualization
           className={classes.inlineOperation}
           operation={logEntry.acknowledgedOperation}
         />{" "}
-        and sent buffer{" "}
+        ，等待区：{" "}
         <OperationVisualization
           className={classes.inlineOperation}
           operation={logEntry.sentBuffer}
         />
-        .
+        。
       </p>
     );
   };
@@ -138,12 +138,12 @@ const makeClientLogItemVisualization = <OpT extends unknown>(
 
     return (
       <p>
-        Received operation{" "}
+        接收到来自服务器的操作{" "}
         <OperationVisualization
           className={classes.inlineOperation}
           operation={logEntry.receivedOperation}
         />{" "}
-        from the server and immediately applied it to the document.
+        并且立即应用。
       </p>
     );
   };
@@ -195,22 +195,21 @@ const makeClientLogItemVisualization = <OpT extends unknown>(
       <>
         <ArrowDiagram width={140} height={140} arrows={arrows} />
         <p style={{ marginTop: "4px" }}>
-          Transformed received operation{" "}
+          接收到的 {" "}
           <OperationVisualization
             className={classes.inlineOperation}
             operation={receivedOperation}
           />{" "}
-          against the awaited transformation{" "}
+          与自己发送的{" "}
           <OperationVisualization
             className={classes.inlineOperation}
             operation={awaitedOperation}
-          />{" "}
-          resulting in{" "}
+          />{" "}发生冲突，解决冲突后：{" "}
           <OperationVisualization
             className={classes.inlineOperation}
             operation={transformedReceivedOperation}
           />{" "}
-          (applied to the editor) and a new awaited operation{" "}
+          和{" "}
           <OperationVisualization
             className={classes.inlineOperation}
             operation={transformedAwaitedOperation}
@@ -281,29 +280,26 @@ const makeClientLogItemVisualization = <OpT extends unknown>(
       <>
         <ArrowDiagram width={245} height={145} arrows={arrows} />
         <p style={{ marginTop: "4px" }}>
-          Transformed received operation{" "}
+          接收到的 {" "}
           <OperationVisualization
             className={classes.inlineOperation}
             operation={receivedOperation}
           />{" "}
-          first against the awaited transformation{" "}
+          与自己发送的{" "}
           <OperationVisualization
             className={classes.inlineOperation}
             operation={awaitedOperation}
-          />{" "}
-          and then against the buffer{" "}
+          />{" "}以及临时区{" "}
           <OperationVisualization className={classes.inlineOperation} operation={bufferOperation} />{" "}
-          resulting in{" "}
+          {" "}发生冲突，解决冲突后：{" "}
           <OperationVisualization
             className={classes.inlineOperation}
             operation={twiceTransformedReceivedOperation}
-          />{" "}
-          (applied to the editor), a new awaited operation{" "}
-          <OperationVisualization
+          />{" "}与{" "}<OperationVisualization
             className={classes.inlineOperation}
             operation={transformedAwaitedOperation}
           />{" "}
-          and a new buffer{" "}
+          ，新的临时区：
           <OperationVisualization
             className={classes.inlineOperation}
             operation={transformedBufferOperation}

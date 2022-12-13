@@ -37,29 +37,29 @@ const makeOperationInSocket =
   <OpT extends unknown>(
     OperationVisualization: OperationVisualizationComp<OpT>,
   ): FunctionComponent<OperationInSocketProps<OpT>> =>
-  (props) => {
-    const classes = useSocketOperationStyles();
+    (props) => {
+      const classes = useSocketOperationStyles();
 
-    const isInitialRender = useIsInitialRender();
+      const isInitialRender = useIsInitialRender();
 
-    const positionStyle: CSSProperties =
-      isInitialRender && props.initialPositionTop !== undefined
-        ? { top: props.initialPositionTop }
-        : props.positionTop !== undefined
-        ? { top: props.positionTop }
-        : {};
+      const positionStyle: CSSProperties =
+        isInitialRender && props.initialPositionTop !== undefined
+          ? { top: props.initialPositionTop }
+          : props.positionTop !== undefined
+            ? { top: props.positionTop }
+            : {};
 
-    const hoverStyle: CSSProperties = props.disableHover ? { pointerEvents: "none" } : {};
+      const hoverStyle: CSSProperties = props.disableHover ? { pointerEvents: "none" } : {};
 
-    return (
-      <OperationVisualization
-        operation={props.operation}
-        className={classes.operationInSocket}
-        style={{ ...positionStyle, ...hoverStyle }}
-        onTransitionEnd={props.onTransitionEnd}
-      />
-    );
-  };
+      return (
+        <OperationVisualization
+          operation={props.operation}
+          className={classes.operationInSocket}
+          style={{ ...positionStyle, ...hoverStyle }}
+          onTransitionEnd={props.onTransitionEnd}
+        />
+      );
+    };
 
 const useSocketStyles = createUseStyles({
   socket: {
@@ -252,13 +252,13 @@ export const makeClientAndSocketsVisualization = <SnapshotT extends unknown, OpT
         <div className={clientClasses.sockets}>
           <SocketVisualization
             direction={SocketDirection.UP}
-            tooltip="Receive next operation from client"
+            tooltip="接收客户端的操作"
             queue={state.toServer}
             onReceiveClick={onServerReceiveClick}
           />
           <SocketVisualization
             direction={SocketDirection.DOWN}
-            tooltip="Receive next operation from server"
+            tooltip="接收服务端的操作"
             queue={state.fromServer}
             onReceiveClick={onClientReceive}
           />
