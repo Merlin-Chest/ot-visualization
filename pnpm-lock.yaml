@@ -18,6 +18,7 @@ specifiers:
   clsx: 1.1.1
   cm-show-invisibles: 3.1.0
   codemirror: 5.61.0
+  core-js: 3.6.4
   dependency-cruiser: 10.0.4
   object-assign: ^4.1.1
   ot: 0.0.15
@@ -45,6 +46,7 @@ dependencies:
   clsx: 1.1.1
   cm-show-invisibles: 3.1.0
   codemirror: 5.61.0
+  core-js: 3.6.4
   object-assign: 4.1.1
   ot: 0.0.15
   prop-types: 15.8.1
@@ -2228,6 +2230,12 @@ packages:
     resolution: {integrity: sha512-21491RRQVzUn0GGM9Z1Jrpr6PNPxPi+Za8OM9q4tksTSnlbXXGKK1nXNg/QvwFYettXvSX6zWKCtHHfjN4puyA==}
     requiresBuild: true
     dev: true
+
+  /core-js/3.6.4:
+    resolution: {integrity: sha512-4paDGScNgZP2IXXilaffL9X7968RuvwlkK3xWtZRVqgd8SYNiVKRJvkFd1aqqEuPfN7E68ZHEp9hDj6lHj4Hyw==}
+    deprecated: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+    requiresBuild: true
+    dev: false
 
   /core-util-is/1.0.2:
     resolution: {integrity: sha512-3lqz5YjWTYnW6dlDa5TLaTCcShfar1e40rmcJVwCBJC6mWlFuj0eCHIElmG1g5kyuJ/GD+8Wn4FFCcz4gJPfaQ==}

@@ -17,6 +17,7 @@
     "clsx": "1.1.1",
     "cm-show-invisibles": "3.1.0",
     "codemirror": "5.61.0",
+    "core-js": "3.6.4",
     "object-assign": "^4.1.1",
     "ot": "0.0.15",
     "prop-types": "^15.8.1",
