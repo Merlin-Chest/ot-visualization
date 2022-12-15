@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  ot-visualization:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    labels:
+      # 设置Host 为 localhost 进行域名访问
+      - traefik.http.routers.ot-visualization.rule=Host(`ot-visualization.merlin218.top`)
+      # 开启HTTPS
+      - traefik.http.routers.ot-visualization.tls=true
+      - traefik.http.routers.ot-visualization.tls.certresolver=le
+
+networks:
+  default:
+    external:
+      name: traefik_default
